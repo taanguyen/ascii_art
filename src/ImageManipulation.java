@@ -22,10 +22,10 @@ public class ImageManipulation {
         pixels = getPixelMatrix();
     }
 
-    public ImageManipulation(String path, int targetWidth, int targetHeight) {
+    public ImageManipulation(String path, int scale) {
         try {
             this.bufferedImage = ImageIO.read(new File(path));
-            resizeImage(targetWidth, targetHeight);
+            resizeImage(scale);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -85,7 +85,9 @@ public class ImageManipulation {
                 .map(pixel -> (pixel[0] + pixel[1] + pixel[2])/ 3).collect(Collectors.toList());
     }
 
-    void resizeImage(int width, int height) throws IOException {
+    void resizeImage(int scale) {
+        int width = getWidth() / scale;
+        int height = getHeight() / scale;
         Image resizedImage = bufferedImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         BufferedImage outputImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         outputImage.createGraphics().drawImage(resizedImage, 0, 0, null);

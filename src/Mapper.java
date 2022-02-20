@@ -21,6 +21,6 @@ public class Mapper {
         // floor the result to get an integral index
         int numAscii = ascii.length();
         int index = (int) Math.floor(brightness / 255. * numAscii);
-        return ascii.charAt(index);
+        return ascii.charAt(index - 1);
     }
 }

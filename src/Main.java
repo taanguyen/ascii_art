@@ -3,9 +3,9 @@ import java.util.List;
 
 public class Main {
     public static void main (String[] args) throws IOException {
-        String path = "imgs/bts_v.jpeg";
-        ImageManipulation imageManipulation = new ImageManipulation(path);
-        imageManipulation.savePixelsToFile("bts.txt");
+        String path = "imgs/ascii-pineapple.jpeg";
+        ImageManipulation imageManipulation = new ImageManipulation(path, 5);
+//        imageManipulation.savePixelsToFile("bts.txt");
         int height = imageManipulation.getHeight();
         int width = imageManipulation.getWidth();
 
